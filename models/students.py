@@ -12,3 +12,13 @@ class SchoolStudents(models.Model):
         ('11', 'Grade 11'),
         ('12', 'Grade 12'),
     ], string='Student Class', default='10',required=True)
+    
+    state = fields.Selection([
+        ('undergraduate', 'Not Graduate'),
+        ('graduated', 'Graduated'),
+    ], string='State', required= True, default='undergraduate')
+
+    def set_graduate(self):
+        if self.state == 'undergraduate':
+            self.state = 'graduated'
+        return True

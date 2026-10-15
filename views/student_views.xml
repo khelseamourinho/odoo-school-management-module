@@ -6,8 +6,9 @@
     <field name="model">school.student</field>
     <field name="arch" type="xml">
       <list string="Student Data">
-        <field name="name"/>
-        <field name="student_class"/>
+        <field name="name" />
+        <field name="student_class" />
+        <field name="state" />
       </list>
     </field>
   </record>
@@ -18,12 +19,15 @@
     <field name="arch" type="xml">
       <form string="Student Data">
         <sheet>
+          <div class="oe_button_box" name="button_box">
+            <button name="set_graduate" string="Set Graduate" type="object" class="fa fa-check-circle" />
+          </div>
           <group>
             <group>
-              <field name="name"/>
+              <field name="name" />
             </group>
             <group>
-              <field name="student_class"/>
+              <field name="student_class" />
             </group>
           </group>
         </sheet>

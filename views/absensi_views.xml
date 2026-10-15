@@ -20,18 +20,27 @@
         <sheet>
           <group>
             <group>
-              <field name='absensi_date'></field>
+              <field name='absensi_date' readonly="state=='done'" ></field>
             </group>
             <group>
               <field name="state"/>
             </group>
-            <field name="student_ids">
-              <list>
-                <field name="name"/>
-                <field name="student_class"/>
-              </list>    
-            </field>
           </group>
+          <notebook>
+            <page string="Student List">
+              <field name="student_ids" readonly="state=='done'" >
+                <list>
+                  <field name="name" />
+                  <field name="student_class" />
+                </list>    
+              </field>
+            </page>
+            <page string="Status Information">
+              <group>
+                <field name="state" readonly="state=='done'" ></field>
+              </group>
+            </page>
+          </notebook>
         </sheet>
       </form>
     </field>

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, _
+from odoo.exceptions import UserError 
 
 class SchoolAbsensi(models.Model):
     _name = "school.absensi"
@@ -12,3 +13,9 @@ class SchoolAbsensi(models.Model):
         ('progress', 'On Progress'),
         ('done', 'Done'),
     ], string='State', default='draft', required=True)
+
+    def write(self, vals):
+        if self.state == 'done':
+            raise UserError(_("You Cant Update Data After Done"))
+        res = super(SchoolAbsensi, self).write(vals)
+        return res
