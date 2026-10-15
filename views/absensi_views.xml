@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="school_absensi_view_list" model="ir.ui.view">
+    <field name="name">school.absensi.view.list</field>
+    <field name="model">school.absensi</field>
+    <field name="arch" type="xml">
+      <list string="Absensi Data">
+        <field name="absensi_date"/>
+        <field name="state"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="school_absensi_view_form" model="ir.ui.view">
+    <field name="name">school.absensi.view.form</field>
+    <field name="model">school.absensi</field>
+    <field name="arch" type="xml">
+      <form string="Absensi Data">
+        <sheet>
+          <group>
+            <group>
+              <field name='absensi_date'></field>
+            </group>
+            <group>
+              <field name="state"/>
+            </group>
+            <field name="student_ids">
+              <list>
+                <field name="name"/>
+                <field name="student_class"/>
+              </list>    
+            </field>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>
